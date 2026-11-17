@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnOffChain — connecting fiat and crypto</title>
+<meta name="description" content="Licences, bank accounts, stablecoins and the ramps between them. Crypto and fiat advisory, Asia-Pacific first.">
+<link rel="icon" type="image/svg+xml" href="onoffchain-symbol-light.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0B0F14}a:hover{color:#3A4350}
+</style>
+<style>html{scroll-behavior:smooth} [hidden]{display:none !important}</style>
+</head>
+<body>
+<div style="width: 100%; font-family: Inter, system-ui, sans-serif; color: #0B0F14; background: #FFFFFF">
+
+<!-- NAV -->
+<header style="background: #0B0F14; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF">
+<span style="width: 44px; height: 44px; border-radius: 10px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><img src="onoffchain-symbol-light.svg" alt="" style="width: 40px; height: 40px; display: block"></span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em; color: #FFFFFF">onoffchain</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
+<a href="#services" style="color: #C9D1DB; text-decoration: none; font-size: 15px; padding: 12px 12px">Services</a>
+<a href="#start" style="color: #C9D1DB; text-decoration: none; font-size: 15px; padding: 12px 12px">Work with us</a>
+<a href="#clients" style="color: #C9D1DB; text-decoration: none; font-size: 15px; padding: 12px 12px">Who we help</a>
+<a href="#contact" style="background: #B9F30E; color: #0B0F14; text-decoration: none; font-size: 15px; font-weight: 600; padding: 12px 20px; border-radius: 999px; margin-left: 8px">Free licence check</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<section id="top" style="background: #0B0F14; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 72px 32px 96px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #9AA4B2; text-transform: uppercase">Crypto + fiat advisory · Asia-Pacific first</span>
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(44px, 6vw, 80px); line-height: 1.02; letter-spacing: -0.03em">Switch between fiat and crypto. Keep the regulators on side.</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #C9D1DB; max-width: 580px">Licences, bank accounts, stablecoins and the ramps between them — designed, delivered and run with you. One team for the whole path, from Singapore to the Gulf, Europe and the US.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#contact" style="background: #B9F30E; color: #0B0F14; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 999px">Book a free licence check</a>
+<a href="#services" style="color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 16px; padding: 15px 27px; border-radius: 999px; border: 1px solid #3A4350">See services</a>
+</div>
+</div>
+
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: center; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.06em">
+<span id="offLabel" style="color: #FFFFFF">OFF-CHAIN</span>
+<button type="button" role="switch" id="chainSwitch" aria-checked="false" aria-label="Show on-chain services" style="width: 88px; height: 48px; border-radius: 24px; border: none; cursor: pointer; padding: 4px; background: #3A4350; display: flex; align-items: center">
+<span id="knob" style="width: 40px; height: 40px; border-radius: 20px; background: #FFFFFF; display: block; transform: translateX(0px); transition: transform 200ms ease"></span>
+</button>
+<span id="onLabel" style="color: #9AA4B2">ON-CHAIN</span>
+</div>
+<div id="chainCard" style="border-radius: 20px; padding: 32px; background: #F3F5F7; color: #0B0F14; border: 1px solid #F3F5F7; display: flex; flex-direction: column; gap: 20px; transition: background 200ms ease">
+<div id="panelOn" hidden>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px">Blockchains</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA4B2">mode: on-chain</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #262E39"><span>Stablecoins</span><span style="color: #9AA4B2">issue · integrate · redeem</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #262E39"><span>Tokenized deposits</span><span style="color: #9AA4B2">for banks</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #262E39"><span>Custody &amp; keys</span><span style="color: #9AA4B2">MPC · multisig · signing</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #262E39; border-bottom: 1px solid #262E39"><span>Chain compliance</span><span style="color: #9AA4B2">KYT · Travel Rule</span></div>
+</div>
+</div>
+</div>
+<div id="panelOff">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px">Bank rails</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6472">mode: off-chain</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #D5DAE1"><span>Banking access</span><span style="color: #5A6472">introductions · due diligence</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #D5DAE1"><span>Payment licences</span><span style="color: #5A6472">MPI · EMI · PI</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #D5DAE1"><span>Rails</span><span style="color: #5A6472">FAST · ACH · SEPA · SWIFT</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid #D5DAE1; border-bottom: 1px solid #D5DAE1"><span>FX &amp; treasury</span><span style="color: #5A6472">convert · hold · reconcile</span></div>
+</div>
+</div>
+</div>
+<p id="cardMuted" style="margin: 0; font-size: 15px; line-height: 1.5; color: #5A6472">Flip the switch. We work on both sides — and on the bridge between them.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MARKETS STRIP -->
+<section aria-label="Markets and rules we cover" style="background: #F3F5F7; border-bottom: 1px solid #E3E7EC">
+<div style="max-width: 1240px; margin: 0 auto; padding: 28px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #5A6472; text-transform: uppercase">Markets and rules we cover</span>
+<span style="font-weight: 500; font-size: 15px">Singapore · MAS PSA</span>
+<span style="font-weight: 500; font-size: 15px">Hong Kong · SFC &amp; HKMA</span>
+<span style="font-weight: 500; font-size: 15px">Dubai · VARA</span>
+<span style="font-weight: 500; font-size: 15px">EU · MiCA</span>
+<span style="font-weight: 500; font-size: 15px">UK · FCA</span>
+<span style="font-weight: 500; font-size: 15px">US · GENIUS Act &amp; state licences</span>
+<span style="font-weight: 500; font-size: 15px">FATF Travel Rule</span>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px 64px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.03em; max-width: 680px">Two worlds of money. One team that knows both.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5A6472; max-width: 400px">Pick one side, or bring us in for the whole path. Most clients start with a licence check and the bridge.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+
+<div style="border: 1px solid #E3E7EC; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 28px; background: #F3F5F7">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0B0F14" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"></path><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"></path><path d="M3 20h18"></path></svg>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">Off-chain · Fiat</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Banking access</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">Introductions to banks that serve digital-asset firms, plus the compliance pack they ask to see.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Payment licences</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">MPI, EMI and PI licences for the fiat side of your business.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Payment rails</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">Local and cross-border flows, virtual accounts and payouts.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">FX &amp; treasury</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">How you hold, convert and reconcile fiat balances.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Safeguarding</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">Client-money accounts and daily reconciliation that pass audit.</p></div>
+</div>
+</div>
+
+<div style="border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 28px; background: #0B0F14; color: #FFFFFF">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B9F30E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"></path></svg>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #B9F30E">The bridge</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">On/off-ramp design</h3><p style="margin: 0; color: #C9D1DB; line-height: 1.55">Architecture for moving value between bank accounts and blockchains.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Crypto licensing</h3><p style="margin: 0; color: #C9D1DB; line-height: 1.55">DPT, VATP, VARA, MiCA, FCA and US money-transmitter licences — one plan across markets.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">AML, KYT &amp; Travel Rule</h3><p style="margin: 0; color: #C9D1DB; line-height: 1.55">KYC, transaction monitoring and Travel Rule flows that pass audit.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Compliance as a service</h3><p style="margin: 0; color: #C9D1DB; line-height: 1.55">Outsourced compliance officer and MLRO, policy upkeep and regulator reporting.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Reviews &amp; inspections</h3><p style="margin: 0; color: #C9D1DB; line-height: 1.55">Independent AML reviews, regulator inspections and bank due-diligence calls.</p></div>
+</div>
+</div>
+
+<div style="border: 1px solid #E3E7EC; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 28px; background: #F3F5F7">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0B0F14" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><path d="M10 6.5h4a2 2 0 0 1 2 2V14"></path></svg>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">On-chain · Crypto</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Stablecoin strategy &amp; issuance</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">Pick, integrate or issue — including reserves, redemption and attestation readiness.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Tokenized deposits</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">For banks: deposit tokens next to, or instead of, stablecoins.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Corporate stablecoin treasury</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">Pay suppliers and move cash across borders, wired into your ERP and policies.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Custody &amp; key security</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">Wallet architecture, MPC and multisig, signing policy and key-ceremony reviews.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 600">Tokenization</h3><p style="margin: 0; color: #5A6472; line-height: 1.55">Tokenized funds and real-world assets, from pilot to production.</p></div>
+</div>
+</div>
+
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; border-top: 1px solid #E3E7EC; padding-top: 32px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #5A6472; text-transform: uppercase">Also</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">Deals &amp; due diligence</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.55">Buy or sell a licensed firm. Diligence for investors backing crypto and payment companies.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #5A6472; text-transform: uppercase">Also</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">Board advisory</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.55">A seat at the table for digital-asset strategy and risk decisions.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #5A6472; text-transform: uppercase">Also</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">Training</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.55">AML and crypto-risk training for boards, compliance teams and engineers.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATEMENT -->
+<section aria-label="Our view" style="background: #B9F30E">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px">
+<p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 4.5vw, 60px); line-height: 1.08; letter-spacing: -0.03em; color: #0B0F14; max-width: 1040px">Money doesn't care which ledger it lives on. <br>Regulators, banks and auditors do. <br>We build connections accross all three.</p>
+</div>
+</section>
+
+<!-- WORK WITH US -->
+<section id="start" style="background: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.03em">Advise. Build. Run.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5A6472; max-width: 440px">Bring us in at any stage. Every engagement starts with a free call and ends with a written, fixed-scope proposal.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+
+<div style="border: 1px solid #E3E7EC; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472">01 · before you commit</span>
+<h3 style="margin: 0; font-size: 30px; font-weight: 700; font-family: 'Space Grotesk', sans-serif">Advise</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.55">Strategy and readiness before you spend money or apply for a licence.</p>
+<ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; line-height: 1.5">
+<li>Licence perimeter check</li>
+<li>Readiness and gap review</li>
+<li>Stablecoin and ramp strategy</li>
+<li>Board and team workshops</li>
+</ul>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472; border-top: 1px solid #E3E7EC; padding-top: 16px">Fixed fee, quoted up front</span>
+</div>
+
+<div style="border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #0B0F14; color: #FFFFFF">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B9F30E">02 · one outcome, delivered</span>
+<h3 style="margin: 0; font-size: 30px; font-weight: 700; font-family: 'Space Grotesk', sans-serif">Build</h3>
+<p style="margin: 0; color: #C9D1DB; line-height: 1.55">We work with your team from start to finish on one clear goal.</p>
+<ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; line-height: 1.5">
+<li>Licence applications</li>
+<li>Bank onboarding</li>
+<li>On/off-ramp build</li>
+<li>Stablecoin or deposit-token launch</li>
+</ul>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9AA4B2; border-top: 1px solid #262E39; padding-top: 16px">Fixed fee or milestones</span>
+</div>
+
+<div style="border: 1px solid #E3E7EC; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472">03 · after launch</span>
+<h3 style="margin: 0; font-size: 30px; font-weight: 700; font-family: 'Space Grotesk', sans-serif">Run</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.55">We stay on as your compliance team, so you can focus on the business.</p>
+<ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; line-height: 1.5">
+<li>Outsourced compliance officer and MLRO</li>
+<li>Monitoring and Travel Rule operations</li>
+<li>Regulator and bank reviews</li>
+<li>Remediation</li>
+</ul>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472; border-top: 1px solid #E3E7EC; padding-top: 16px">Monthly retainer</span>
+</div>
+
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; background: #F3F5F7; border-radius: 20px; padding: 28px 32px">
+<div style="display: flex; align-items: baseline; gap: 12px; flex: 1 1 220px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6472">1</span><span><strong style="font-weight: 600">Free 30-minute call.</strong> <span style="color: #5A6472">We check which licences and partners apply.</span></span></div>
+<div style="display: flex; align-items: baseline; gap: 12px; flex: 1 1 220px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6472">2</span><span><strong style="font-weight: 600">Written quote.</strong> <span style="color: #5A6472">Fixed scope, fee and timeline, agreed before any work starts.</span></span></div>
+<div style="display: flex; align-items: baseline; gap: 12px; flex: 1 1 220px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6472">3</span><span><strong style="font-weight: 600">Kick-off.</strong> <span style="color: #5A6472">A named team and weekly updates.</span></span></div>
+<a href="mailto:hello@onoffchain.net" style="background: #0B0F14; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px 24px; border-radius: 999px">Email us</a>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="background: #F3F5F7">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 56px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.03em">How we work</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid #0B0F14; padding-top: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6472">01</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Diagnose</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">We map your money flows, licences and gaps. You get a clear picture of where you stand.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid #0B0F14; padding-top: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6472">02</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Design</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">We set the target model: rails, partners, controls and the order to build them in.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid #0B0F14; padding-top: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6472">03</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Deliver</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">We work beside your team through build, launch and the first audit.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid #0B0F14; padding-top: 24px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6472">04</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Run or hand over</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">Keep us on retainer to run compliance, or take over with our docs, runbooks and training.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHO WE HELP -->
+<section id="clients" style="background: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 56px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.03em">Who we help</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<div style="background: #F3F5F7; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472">fiat → crypto</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Banks &amp; payment firms</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">Adding stablecoins, custody or tokenized deposits without putting your licence at risk.</p>
+<p style="margin: 0; font-size: 14px; color: #3A4350; line-height: 1.5">Tokenized deposits · Custody · Stablecoin strategy</p>
+</div>
+<div style="background: #F3F5F7; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472">crypto → fiat</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Crypto &amp; Web3 firms</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">Getting bank accounts, payment rails and the licences that keep them open.</p>
+<p style="margin: 0; font-size: 14px; color: #3A4350; line-height: 1.5">Banking access · Licensing · Compliance as a service</p>
+</div>
+<div style="background: #F3F5F7; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472">both ways</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Corporates &amp; treasuries</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">Paying suppliers or holding reserves in stablecoins, with controls your CFO signs off.</p>
+<p style="margin: 0; font-size: 14px; color: #3A4350; line-height: 1.5">Stablecoin treasury · FX · Ramps</p>
+</div>
+<div style="background: #F3F5F7; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5A6472">buy · back · build</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; font-family: 'Space Grotesk', sans-serif">Investors &amp; acquirers</h3>
+<p style="margin: 0; color: #5A6472; line-height: 1.6">Diligence on crypto and payment firms, and help buying a licensed business.</p>
+<p style="margin: 0; font-size: 14px; color: #3A4350; line-height: 1.5">Due diligence · Deals · Board advisory</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: #0B0F14; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 28px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(36px, 4.5vw, 64px); line-height: 1.05; letter-spacing: -0.03em; max-width: 900px">Tell us where your money needs to go.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #C9D1DB; max-width: 640px">Email us a few lines on what you're building and which markets you need. We'll set up a free 30-minute licence check. If we can help, you get a written, fixed-scope proposal. If not, we point you to someone who can.</p>
+<a href="mailto:hello@onoffchain.net" style="display: inline-flex; align-items: center; gap: 14px; background: #B9F30E; color: #0B0F14; text-decoration: none; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); padding: 20px 32px; border-radius: 999px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0B0F14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+hello@onoffchain.net</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #0B0F14; color: #9AA4B2; border-top: 1px solid #262E39">
+<div style="max-width: 1240px; margin: 0 auto; padding: 40px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; font-size: 14px; line-height: 1.6">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<img src="onoffchain-card-dark.svg" alt="onoffchain — connecting fiat and crypto" style="width: 200px; height: auto; display: block">
+<span>OnOffChain Pte. Ltd. · Block 79 Ayer Rajah Crescent, #03-01, Singapore</span>
+</div>
+<a href="mailto:hello@onoffchain.net" style="color: #C9D1DB; align-self: flex-end">hello@onoffchain.net</a>
+</div>
+</footer>
+
+</div>
+<script>
+(function () {
+  var ACCENT = '#B9F30E';
+  var on = false;
+  var $ = function (id) { return document.getElementById(id); };
+  $('chainSwitch').addEventListener('click', function () {
+    on = !on;
+    this.setAttribute('aria-checked', on ? 'true' : 'false');
+    this.style.background = on ? ACCENT : '#3A4350';
+    $('knob').style.background = on ? '#0B0F14' : '#FFFFFF';
+    $('knob').style.transform = 'translateX(' + (on ? '40px' : '0px') + ')';
+    $('onLabel').style.color = on ? ACCENT : '#9AA4B2';
+    $('offLabel').style.color = on ? '#9AA4B2' : '#FFFFFF';
+    var card = $('chainCard');
+    card.style.background = on ? '#11161D' : '#F3F5F7';
+    card.style.color = on ? '#FFFFFF' : '#0B0F14';
+    card.style.borderColor = on ? ACCENT : '#F3F5F7';
+    $('cardMuted').style.color = on ? '#C9D1DB' : '#5A6472';
+    $('panelOn').hidden = !on;
+    $('panelOff').hidden = on;
+  });
+})();
+</script>
+</body>
+</html>

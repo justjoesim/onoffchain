@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">onoffchain - symbol</title>
+  <desc id="desc">Anchor and progress-dot icon for onoffchain. No wordmark.</desc>
+  <g transform="translate(15 38) scale(2.26)"><g class="onoffchain-symbol">
+<circle cx="100" cy="12" r="8.6" fill="#B9F30E"/>
+<circle cx="78" cy="25" r="8.7" fill="#B9F30E"/>
+<circle cx="122" cy="25" r="8.7" fill="#B9F30E"/>
+<circle cx="57" cy="39" r="8.5" fill="#B9F30E"/>
+<circle cx="100" cy="39" r="8.3" fill="#A6DB0A"/>
+<circle cx="143" cy="39" r="8.5" fill="#B9F30E"/>
+<circle cx="37" cy="55" r="8.6" fill="#B9F30E"/>
+<circle cx="78" cy="54" r="8.7" fill="#B9F30E"/>
+<circle cx="122" cy="54" r="8.7" fill="#B9F30E"/>
+<circle cx="163" cy="55" r="8.6" fill="#B9F30E"/>
+<circle cx="37" cy="78" r="8.5" fill="#91B71D"/>
+<circle cx="57" cy="72" r="8.3" fill="#A6DB0A"/>
+<circle cx="78" cy="77" r="8.3" fill="#91B71D"/>
+<circle cx="122" cy="77" r="8.3" fill="#91B71D"/>
+<circle cx="143" cy="72" r="8.3" fill="#A6DB0A"/>
+<circle cx="163" cy="78" r="8.5" fill="#729627"/>
+<circle cx="37" cy="101" r="8.8" fill="#566165"/>
+<circle cx="57" cy="97" r="8.4" fill="#91B71D"/>
+<circle cx="79" cy="99" r="8.3" fill="#91B71D"/>
+<circle cx="121" cy="99" r="8.3" fill="#91B71D"/>
+<circle cx="143" cy="97" r="8.4" fill="#729627"/>
+<circle cx="163" cy="101" r="8.8" fill="#CED4D4"/>
+<circle cx="37" cy="123" r="8.5" fill="#ADB5B6"/>
+<circle cx="57" cy="119" r="8.4" fill="#7B8587"/>
+<circle cx="79" cy="122" r="8.3" fill="#566165"/>
+<circle cx="121" cy="122" r="8.3" fill="#566165"/>
+<circle cx="143" cy="119" r="8.4" fill="#7B8587"/>
+<circle cx="163" cy="123" r="8.5" fill="#ADB5B6"/>
+<circle cx="58" cy="143" r="8.3" fill="#7B8587"/>
+<circle cx="79" cy="153" r="8.4" fill="#ADB5B6"/>
+<circle cx="100" cy="161" r="8.5" fill="#ADB5B6"/>
+<circle cx="121" cy="153" r="8.4" fill="#ADB5B6"/>
+<circle cx="142" cy="143" r="8.3" fill="#7B8587"/>
+
+ <g fill="none" stroke="#0B1114" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="100" cy="68" r="9.2" stroke-width="7.5"/>
+  <path d="M100 79 V156" stroke-width="9"/>
+  <path d="M78 88 H122" stroke-width="9"/>
+  <path d="M48 124 C50 147 70 163 100 162 C130 163 150 147 152 124" stroke-width="9.5"/>
+ </g>
+ <path d="M48 112 L37.5 125.5 L54.5 129.2 Z" fill="#0B1114"/>
+ <path d="M152 112 L162.5 125.5 L145.5 129.2 Z" fill="#0B1114"/>
+ <path d="M89.7 160.5 L100 181 L110.3 160.5 Z" fill="#0B1114"/>
+
+</g></g>
+</svg>
