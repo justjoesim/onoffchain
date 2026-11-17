@@ -13,6 +13,32 @@ body{margin:0}
 a{color:#0B0F14}a:hover{color:#3A4350}
 </style>
 <style>html{scroll-behavior:smooth} [hidden]{display:none !important}</style>
+<style>
+/* Mobile responsiveness — overrides inline styles on small screens */
+*,*::before,*::after{box-sizing:border-box}
+img,svg{max-width:100%}
+@media (max-width: 640px){
+  section > div{padding-top:56px !important;padding-bottom:56px !important;padding-left:20px !important;padding-right:20px !important}
+  header > div{padding:16px 20px !important}
+  footer > div{padding:32px 20px !important}
+  section[aria-label="Markets and rules we cover"] > div{padding-top:20px !important;padding-bottom:20px !important}
+  section[aria-label="Our view"] > div{padding-top:64px !important;padding-bottom:64px !important}
+  section[aria-label="Our view"] br{display:none}
+  #top > div{gap:40px !important;padding-top:56px !important;padding-bottom:64px !important}
+  h1{font-size:36px !important}
+  h2{font-size:32px !important}
+  header nav a{font-size:14px !important;padding:10px 8px !important}
+  header nav a:last-child{margin-left:0 !important}
+  #chainCard{padding:24px !important}
+  #chainCard div[style*="border-top: 1px solid"]{flex-direction:column !important;gap:2px !important}
+  #services div[style*="padding: 32px"],#start div[style*="padding: 32px"],#clients div[style*="padding: 32px"]{padding:24px !important}
+  #contact a[href^="mailto:"]{font-size:18px !important;padding:16px 20px !important}
+}
+@media (max-width: 380px){
+  h1{font-size:32px !important}
+  #contact a[href^="mailto:"]{font-size:17px !important;padding:14px 18px !important;gap:10px !important}
+}
+</style>
 </head>
 <body>
 <div style="width: 100%; font-family: Inter, system-ui, sans-serif; color: #0B0F14; background: #FFFFFF">
@@ -179,7 +205,7 @@ a{color:#0B0F14}a:hover{color:#3A4350}
 <!-- STATEMENT -->
 <section aria-label="Our view" style="background: #B9F30E">
 <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px">
-<p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 4.5vw, 60px); line-height: 1.08; letter-spacing: -0.03em; color: #0B0F14; max-width: 1040px">Money doesn't care which ledger it lives on. <br>Regulators, banks and auditors do. <br>We build connections accross all three.</p>
+<p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 4.5vw, 60px); line-height: 1.08; letter-spacing: -0.03em; color: #0B0F14; max-width: 1040px">Money doesn't care which ledger it lives on. <br>Regulators, banks and auditors do. <br>We build connections across all three.</p>
 </div>
 </section>
 
